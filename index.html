@@ -1,0 +1,25 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+
+    </head>
+    <body>
+      <script src="http://yui.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
+      <script>
+      YUI.GlobalConfig = {
+          modules: {
+              'foo-widget': './js/yui/foo-widget.js',
+              'react-wrapper': './js/yui/react-wrapper.js',
+              'react': 'http://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js',
+              'reactDOM': 'http://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js'
+
+          }
+      };
+
+      YUI().use('foo-widget', function (Y) {
+          var fooWidget = new Y.FooWidget();
+          fooWidget.render();
+      });
+      </script>
+    </body>
+</html>

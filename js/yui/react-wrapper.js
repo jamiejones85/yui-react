@@ -4,21 +4,18 @@ YUI.add('react-wrapper', function (Y) {
       var MODULE_NAME = 'react-wrapper';
 
       Y.ReactWrapper = Y.Base.create(MODULE_NAME, Y.Widget, [], {
+          bindUI: function() {
+            //lets listen for the react component firing an event to us
+            Y.on('todo:newItem', function (e) {
+                alert("Looky there! This is YUI, '" + e.newItem.text + "' was added to the react todo.");
+            });
+          },
           renderUI: function () {
-            // Load a single JavaScript resource.
-            class HelloMessage extends React.Component {
-              render() {
-                return React.createElement(
-                  "div",
-                  null,
-                  "Hello ",
-                  this.props.name,
-                  " this is React."
-                );
-              }
-            }
+            var yuiParent = this;
+            requirejs(['react', 'react-dom', 'todo'], function(React, ReactDOM, Todo) {
 
-            ReactDOM.render(React.createElement(HelloMessage, { name: "John" }), this.get('contentBox').getDOMNode());
+              ReactDOM.render(React.createElement(Todo, { yui: Y }), yuiParent.get('contentBox').getDOMNode());
+            });
           }
 
       }, {
@@ -26,4 +23,4 @@ YUI.add('react-wrapper', function (Y) {
 
   }(Y));
 
-}, '1.0.0', {"requires":["widget", "base", "react", "reactDOM"]});
+}, '1.0.0', {"requires":["widget", "base", "event-custom"]});

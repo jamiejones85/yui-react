@@ -5,31 +5,10 @@
     </head>
     <body>
       <script src="http://yui.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
-      <!-- Require.js -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js"></script>
-      <script>
-      YUI.GlobalConfig = {
-          modules: {
-              'foo-widget': './js/yui/foo-widget.js',
-              'react-wrapper': './js/yui/react-wrapper.js'
-          }
-      };
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.js"></script>
 
-      requirejs.config({
-          // module name mapped to CDN url
-          paths: {
-              // Require.js appends `.js` extension for you
-              'react': 'https://unpkg.com/react@15.3.2/dist/react',
-              'react-dom': 'https://unpkg.com/react-dom@15.3.2/dist/react-dom',
-              'todo': '/js/react/todo',
-              'todo-list': '/js/react/todo-list'
-          }
-      });
+      <script src="bundle.js"></script>
 
-      YUI().use('foo-widget', function (Y) {
-          var fooWidget = new Y.FooWidget();
-          fooWidget.render();
-      });
-      </script>
     </body>
 </html>

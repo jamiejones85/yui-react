@@ -12,10 +12,8 @@ YUI.add('react-wrapper', function (Y) {
           },
           renderUI: function () {
             var yuiParent = this;
-            requirejs(['react', 'react-dom', 'todo'], function(React, ReactDOM, Todo) {
+            ReactDOM.render(React.createElement(Y.ReactComponents.Todo, { yui: Y }), yuiParent.get('contentBox').getDOMNode());
 
-              ReactDOM.render(React.createElement(Todo, { yui: Y }), yuiParent.get('contentBox').getDOMNode());
-            });
           }
 
       }, {
@@ -23,4 +21,4 @@ YUI.add('react-wrapper', function (Y) {
 
   }(Y));
 
-}, '1.0.0', {"requires":["widget", "base", "event-custom"]});
+}, '1.0.0', {"requires":["widget", "base", "event-custom", "react-components"]});

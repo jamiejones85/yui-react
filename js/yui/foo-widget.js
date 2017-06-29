@@ -26,4 +26,4 @@ YUI.add('foo-widget', function (Y) {
 
   }(Y));
 
-}, '1.0.0', {"requires":["widget", "base", "react-wrapper"]});
+}, '1.0.0', {"requires":["react-wrapper", "widget", "base"]});
